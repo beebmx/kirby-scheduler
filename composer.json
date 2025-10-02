@@ -3,7 +3,7 @@
     "description": "Kirby Scheduler offers a fresh approach to managing scheduled tasks on your server.",
     "license": "MIT",
     "type": "kirby-plugin",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "keywords": [
         "schedule",
         "scheduler",

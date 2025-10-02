@@ -24,8 +24,6 @@ return [
         'args' => [
             'name' => [
                 'description' => 'The name of the command',
-                // 'longPrefix' => 'name',
-                // 'prefix' => 'n',
             ],
         ],
     ],
