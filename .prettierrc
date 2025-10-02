@@ -1,0 +1,23 @@
+{
+  "endWithNewLine": true,
+  "tabWidth": 2,
+  "overrides": [
+    {
+      "files": ["*.js"],
+      "options": {
+        "printWidth": 180,
+        "singleQuote": true,
+        "semi": false
+      }
+    }, {
+      "files": ["*.vue"],
+      "options": {
+        "semi": false,
+        "printWidth": 180,
+        "singleQuote": true,
+        "jsxSingleQuote": false,
+        "vueIndentScriptAndStyle": true
+      }
+    }
+  ]
+}
