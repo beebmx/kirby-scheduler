@@ -11,8 +11,6 @@ class ScheduleRunCommand
 {
     public function __invoke(CLI $cli): void
     {
-        $cli->out('Running scheduled tasks.');
-
         Schedule::run();
     }
 }

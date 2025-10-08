@@ -2,6 +2,11 @@
 
 All notable changes to `Scheduler` will be documented in this file.
 
+## 1.0.2 - 2025-10-08
+
+- Remove running message for `schedule:run` command
+- Added FUNDING file
+
 ## 1.0.1 - 2025-10-02
 
 - Clean repository
