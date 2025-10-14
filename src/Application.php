@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Beebmx\KirbScheduler;
 
 use Illuminate\Container\Container;
+use Kirby\Cms\App;
 use RuntimeException;
 
 class Application extends Container
@@ -29,6 +30,11 @@ class Application extends Container
             'kirby',
             is_array($environments[0]) ? $environments[0] : $environments
         );
+    }
+
+    public function basePath(string $path = ''): string
+    {
+        return base_path($path);
     }
 
     public function runningUnitTests(): bool
