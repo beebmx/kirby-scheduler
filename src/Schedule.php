@@ -312,7 +312,7 @@ final class Schedule
     private function getInstance(): Application
     {
         if (class_exists('Beebmx\\KirbyBlade\\Application')) {
-            return Beebmx\KirbyBlade\Application::getInstance();
+            return \Beebmx\KirbyBlade\Application::getInstance();
         }
 
         return Application::getInstance();

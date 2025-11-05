@@ -2,6 +2,10 @@
 
 All notable changes to `Scheduler` will be documented in this file.
 
+## 1.0.6 - 2025-11-05
+
+- Fixed an error with KirbyBlade namespace
+
 ## 1.0.5 - 2025-11-05
 
 - Unified containers if KirbyBlade is installed
