@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace Beebmx\KirbScheduler;
 
-use Closure;
 use Illuminate\Container\Container;
 use Illuminate\Support\Traits\Macroable;
 use RuntimeException;

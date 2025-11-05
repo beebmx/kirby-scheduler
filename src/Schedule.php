@@ -215,7 +215,7 @@ final class Schedule
         $this->schedule->group($events);
     }
 
-    public function container(): Application
+    public function container(): Container
     {
         return $this->container;
     }
@@ -309,7 +309,7 @@ final class Schedule
         ));
     }
 
-    private function getInstance(): Application
+    private function getInstance(): Container
     {
         if (class_exists('Beebmx\\KirbyBlade\\Application')) {
             return \Beebmx\KirbyBlade\Application::getInstance();
