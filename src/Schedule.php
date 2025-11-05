@@ -49,7 +49,7 @@ final class Schedule
 
     private function setup(): void
     {
-        $this->container = Application::getInstance();
+        $this->container = $this->getInstance();
 
         $this->container->instance('app', $this->container);
 
@@ -250,7 +250,7 @@ final class Schedule
      */
     public static function instance(): self
     {
-        return static::$instance ??= new static;
+        return self::$instance ??= new self;
     }
 
     /**
@@ -258,7 +258,7 @@ final class Schedule
      */
     public static function destroy(): void
     {
-        static::$instance = null;
+        self::$instance = null;
         Application::getInstance()->flush();
     }
 
@@ -276,7 +276,7 @@ final class Schedule
         $schedule = Kirby::instance()->option('beebmx.scheduler.schedule');
 
         if (is_callable($schedule)) {
-            $schedule(static::instance());
+            $schedule(self::instance());
         }
 
         return $this;
@@ -305,7 +305,16 @@ final class Schedule
         }
 
         throw new BadMethodCallException(sprintf(
-            'Method %s::%s does not exist.', static::class, $method
+            'Method %s::%s does not exist.', self::class, $method
         ));
+    }
+
+    private function getInstance(): Application
+    {
+        if (class_exists('Beebmx\\KirbyBlade\\Application')) {
+            return Beebmx\KirbyBlade\Application::getInstance();
+        }
+
+        return Application::getInstance();
     }
 }

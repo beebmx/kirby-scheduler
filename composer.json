@@ -3,7 +3,7 @@
     "description": "Scheduler offers a fresh approach to managing scheduled tasks on your server.",
     "license": "MIT",
     "type": "kirby-plugin",
-    "version": "1.0.4",
+    "version": "1.0.5",
     "homepage": "https://github.com/beebmx/kirby-scheduler",
     "keywords": [
         "schedule",

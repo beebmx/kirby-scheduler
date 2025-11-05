@@ -18,13 +18,6 @@ final class Application extends Container
      */
     protected ?string $namespace = null;
 
-    /**
-     * The array of terminating callbacks.
-     *
-     * @var callable[]
-     */
-    protected array $terminatingCallbacks = [];
-
     public function isDownForMaintenance(): bool
     {
         return false;
@@ -50,26 +43,6 @@ final class Application extends Container
     public function runningUnitTests(): bool
     {
         return true;
-    }
-
-    /**
-     * Register a terminating callback with the application.
-     */
-    public function terminating(Closure $callback): static
-    {
-        $this->terminatingCallbacks[] = $callback;
-
-        return $this;
-    }
-
-    /**
-     * Terminate the application.
-     */
-    public function terminate(): void
-    {
-        foreach ($this->terminatingCallbacks as $terminatingCallback) {
-            $terminatingCallback();
-        }
     }
 
     public function getNamespace(): string
