@@ -7,7 +7,7 @@ namespace Beebmx\KirbScheduler\Exceptions;
 use Illuminate\Contracts\Debug\ExceptionHandler;
 use Throwable;
 
-class Handler implements ExceptionHandler
+final class Handler implements ExceptionHandler
 {
     public function shouldReport(Throwable $e): bool
     {

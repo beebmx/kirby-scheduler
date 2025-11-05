@@ -4,16 +4,26 @@ declare(strict_types=1);
 
 namespace Beebmx\KirbScheduler;
 
+use Closure;
 use Illuminate\Container\Container;
-use Kirby\Cms\App;
+use Illuminate\Support\Traits\Macroable;
 use RuntimeException;
 
-class Application extends Container
+final class Application extends Container
 {
+    use Macroable;
+
     /**
      * The application namespace.
      */
     protected ?string $namespace = null;
+
+    /**
+     * The array of terminating callbacks.
+     *
+     * @var callable[]
+     */
+    protected array $terminatingCallbacks = [];
 
     public function isDownForMaintenance(): bool
     {
@@ -40,6 +50,26 @@ class Application extends Container
     public function runningUnitTests(): bool
     {
         return true;
+    }
+
+    /**
+     * Register a terminating callback with the application.
+     */
+    public function terminating(Closure $callback): static
+    {
+        $this->terminatingCallbacks[] = $callback;
+
+        return $this;
+    }
+
+    /**
+     * Terminate the application.
+     */
+    public function terminate(): void
+    {
+        foreach ($this->terminatingCallbacks as $terminatingCallback) {
+            $terminatingCallback();
+        }
     }
 
     public function getNamespace(): string

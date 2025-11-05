@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 namespace Beebmx\KirbScheduler\Facades;
 
 use Beebmx\KirbScheduler\Schedule as ConsoleSchedule;
@@ -83,7 +83,7 @@ use Kirby\Toolkit\Facade;
  *
  * @see \Beebmx\KirbScheduler\Schedule
  */
-class Schedule extends Facade
+final class Schedule extends Facade
 {
     public static function instance(): ConsoleSchedule
     {

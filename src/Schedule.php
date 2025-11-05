@@ -32,7 +32,7 @@ use RuntimeException;
 use Symfony\Component\Console\Input\ArrayInput;
 use Symfony\Component\Console\Output\BufferedOutput;
 
-class Schedule
+final class Schedule
 {
     protected Container $container;
 
@@ -47,7 +47,7 @@ class Schedule
         $this->setup();
     }
 
-    protected function setup(): void
+    private function setup(): void
     {
         $this->container = Application::getInstance();
 
@@ -237,12 +237,12 @@ class Schedule
 
     public function isStarted(): bool
     {
-        return $this->status != Process::READY;
+        return $this->status !== Process::READY;
     }
 
     public function isTerminated(): bool
     {
-        return $this->status == Process::TERMINATED;
+        return $this->status === Process::TERMINATED;
     }
 
     /**
@@ -262,7 +262,7 @@ class Schedule
         Application::getInstance()->flush();
     }
 
-    protected function prepare(): self
+    private function prepare(): self
     {
         $this
             ->setCallback()
@@ -271,7 +271,7 @@ class Schedule
         return $this;
     }
 
-    protected function setCallback(): self
+    private function setCallback(): self
     {
         $schedule = Kirby::instance()->option('beebmx.scheduler.schedule');
 
@@ -282,7 +282,7 @@ class Schedule
         return $this;
     }
 
-    protected function setPathTasks(): self
+    private function setPathTasks(): self
     {
         $tasks = Kirby::instance()->option('beebmx.scheduler.tasks');
 

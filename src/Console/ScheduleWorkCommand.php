@@ -8,7 +8,7 @@ use Beebmx\KirbScheduler\Facades\Schedule;
 use Illuminate\Support\Carbon;
 use Kirby\CLI\CLI;
 
-class ScheduleWorkCommand
+final class ScheduleWorkCommand
 {
     public function __invoke(CLI $cli): void
     {

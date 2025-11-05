@@ -7,7 +7,7 @@ namespace Beebmx\KirbScheduler\Console;
 use Beebmx\KirbScheduler\Facades\Schedule;
 use Kirby\CLI\CLI;
 
-class ScheduleListCommand
+final class ScheduleListCommand
 {
     public function __invoke(CLI $cli): void
     {
